@@ -21,6 +21,17 @@ public class LoginPage
 	
 	By login_button=By.className("submit-btn");
 	
+	//Creating new users
+	
+	By newUser = By.xpath("//a[text()='New user? Signup']");
+	public RegistrationPage registerUser() {
+		
+		Utility.clickElement(driver, newUser);
+		return new RegistrationPage(driver);
+
+		
+	}
+	
 	public HomePage loginToApp(String uname, String pass) 
 	{
 		

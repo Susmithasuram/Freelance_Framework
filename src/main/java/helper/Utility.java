@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utility 
@@ -139,6 +140,17 @@ public class Utility
 		}
 		
 		
+	}
+	/***
+	 * Select by Visible Text
+	 * @param driver
+	 * @param locator
+	 * @param text
+	 */
+	public static void selectValue(WebDriver driver,By locator, String text) {
+		
+		Select sel = new Select(findElement(driver, locator));
+		sel.selectByVisibleText(text);
 	}
 
 }

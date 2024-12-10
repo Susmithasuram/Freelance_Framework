@@ -15,5 +15,18 @@ public class CustomDataProvider
 		
 		return arr;
 	}
+	
+	@DataProvider(name="newUsers")
+	public static Object[][] newUserDetails()
+	{
+		System.out.println("LOG:INFO - Generating Test Data For The Test");
+		
+		Object[][]arr= ExcelReader.getDataFromExcel("new_users");
+		
+		System.out.println("LOG:INFO - Test Data Generated");
+		
+		return arr;
+	}
+	
 
 }
