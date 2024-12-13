@@ -11,7 +11,8 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<!--<class name="testcases.LoginTest" />-->
-			<class name="testcases.HomePageTest" />
+			<!--<class name="testcases.HomePageTest" />-->
+			<class name="testcases.EnrollCourseTest" />
 		</classes>
 	</test>
 </suite> 

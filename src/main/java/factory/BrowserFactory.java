@@ -48,6 +48,8 @@ public class BrowserFactory
 			System.out.println("Sorry Current We Dont Support " + browser + " Browser");
 		}
 		
+		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Long.parseLong(ConfigReader.getValue("pageload"))));
 
 		driver.get(applicationURL);

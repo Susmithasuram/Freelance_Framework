@@ -28,5 +28,21 @@ public class CustomDataProvider
 		return arr;
 	}
 	
+	@DataProvider(name="CourseInfo")
+	public static Object[][] courseDetails()
+	{
+		System.out.println("LOG:INFO - Generating Test Data For The Test to add the Course");
+		
+		Object[][]arr= ExcelReader.getDataFromExcel("courses_details");
+		
+		System.out.println("LOG:INFO - Test Data Generated");
+		
+		return arr;
+	}
+	
+	
+	
+	
+	
 
 }
