@@ -31,8 +31,11 @@ public class EnrollPage
 	public int getPrice()
 	{
 	  String price=	Utility.findElement(driver, totalPrice,20).getText();
+	  System.out.println("price value is "+price);
 	  String priceValue= price.replace("₹","");
+	  System.out.println("price value is "+priceValue);
 	  String newPrice=priceValue.trim();
+	  System.out.println("price value is "+newPrice);
 	  int Courseprice=Integer.parseInt(newPrice);
 	  return Courseprice;
 	}

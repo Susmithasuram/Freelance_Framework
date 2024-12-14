@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-13T18:33:32 IST" name="Suite" finished-at="2024-12-13T18:33:42 IST" duration-ms="9607">
+  <suite started-at="2024-12-14T07:26:44 IST" name="Suite" finished-at="2024-12-14T07:27:06 IST" duration-ms="21654">
     <groups>
     </groups>
-    <test started-at="2024-12-13T18:33:32 IST" name="Test" finished-at="2024-12-13T18:33:42 IST" duration-ms="9607">
+    <test started-at="2024-12-14T07:26:44 IST" name="Test" finished-at="2024-12-14T07:27:06 IST" duration-ms="21654">
       <class name="testcases.EnrollCourseTest">
-        <test-method is-config="true" signature="setupBrowser()[pri:0, instance:testcases.EnrollCourseTest@76494737]" started-at="2024-12-13T18:33:32 IST" name="setupBrowser" finished-at="2024-12-13T18:33:36 IST" duration-ms="4097" status="PASS">
+        <test-method is-config="true" signature="setupBrowser()[pri:0, instance:testcases.EnrollCourseTest@76494737]" started-at="2024-12-14T07:26:44 IST" name="setupBrowser" finished-at="2024-12-14T07:26:47 IST" duration-ms="2710" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupBrowser -->
-        <test-method signature="validLoginTest(java.lang.String,java.lang.String)[pri:0, instance:testcases.EnrollCourseTest@76494737]" started-at="2024-12-13T18:33:37 IST" name="validLoginTest" data-provider="login" finished-at="2024-12-13T18:33:40 IST" duration-ms="2854" status="PASS">
+        <test-method signature="validLoginTest(java.lang.String,java.lang.String)[pri:0, instance:testcases.EnrollCourseTest@76494737]" started-at="2024-12-14T07:26:48 IST" name="validLoginTest" data-provider="login" finished-at="2024-12-14T07:26:54 IST" duration-ms="6141" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,7 +27,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validLoginTest -->
-        <test-method signature="enrollCourse(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:testcases.EnrollCourseTest@76494737]" started-at="2024-12-13T18:33:40 IST" name="enrollCourse" data-provider="CourseInfo" finished-at="2024-12-13T18:33:42 IST" duration-ms="1314" status="PASS">
+        <test-method signature="enrollCourse(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:testcases.EnrollCourseTest@76494737]" started-at="2024-12-14T07:26:54 IST" name="enrollCourse" data-provider="CourseInfo" finished-at="2024-12-14T07:27:05 IST" duration-ms="11043" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -48,7 +48,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- enrollCourse -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.EnrollCourseTest@76494737]" started-at="2024-12-13T18:33:42 IST" name="tearDown" finished-at="2024-12-13T18:33:42 IST" duration-ms="202" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.EnrollCourseTest@76494737]" started-at="2024-12-14T07:27:05 IST" name="tearDown" finished-at="2024-12-14T07:27:06 IST" duration-ms="312" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
