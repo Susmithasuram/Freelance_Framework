@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
+import javax.swing.text.Highlighter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -15,11 +17,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import dataprovider.ConfigReader;
+
 public class Utility 
 {
 	
 	
-	public void waitForSeconds(int seconds)
+	public static void waitForSeconds(int seconds)
 	{
 		try 
 		{
@@ -38,6 +42,18 @@ public class Utility
 		String screenshot=ts.getScreenshotAs(OutputType.BASE64);
 		
 		return screenshot;
+	}
+	
+	public static WebElement highlightElement(WebDriver driver,WebElement element)
+	{
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].setAttribute('style','background:yellow;border:2px solid red')", element);
+		
+		waitForSeconds(1);
+		
+		js.executeScript("arguments[0].setAttribute('style','border:2px solid black')", element);
+		
+		return element;
 	}
 	
 	
@@ -61,6 +77,11 @@ public class Utility
 		
 		WebElement element=wait.until(ExpectedConditions.elementToBeClickable(locator));
 	
+		String highLight=ConfigReader.getValue("highlightelement");
+		if(highLight.equalsIgnoreCase("true"))
+		{
+			highlightElement(driver, element);
+		}
 		return element;
 	}
 	
@@ -72,6 +93,11 @@ public class Utility
 		
 		WebElement element=wait.until(ExpectedConditions.elementToBeClickable(locator));
 	
+		String highLight=ConfigReader.getValue("highlightelement");
+		if(highLight.equalsIgnoreCase("true"))
+		{
+			highlightElement(driver, element);
+		}
 		return element;
 	}
 	

@@ -38,9 +38,9 @@ public class EnrollCourseTest extends BaseClass
 		
 		EnrollPage enroll= cart.clickEnroll();
 		
-		int price= enroll.getPrice();
+		//int price= enroll.getPrice();
 		
-		System.out.println("Price is "+price);
+		//System.out.println("Price is "+price);
 		
 		enroll.enterDetailsfor_enrolling(address, phone);
 		
