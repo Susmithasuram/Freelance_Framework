@@ -51,7 +51,7 @@ public class BaseClass
 	public void tearDown()
 	{
 		System.out.println("LOG:INFO - Closing Browser");
-		driver.quit();
+		//driver.quit();
 		System.out.println("LOG:INFO - Application and browser closed");
 	}
 	

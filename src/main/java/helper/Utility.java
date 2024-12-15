@@ -1,8 +1,10 @@
 package helper;
 
+import java.sql.Driver;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.text.Highlighter;
 
@@ -101,6 +103,52 @@ public class Utility
 		return element;
 	}
 	
+	public static List<WebElement>  findElements (WebDriver driver,By locator)
+	{
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+		List<WebElement> courseNames= wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+		
+		return courseNames;
+	}
+	
+	public static void selectValueFromList(WebDriver driver,By locator,String valueToSearch)
+	{
+		List<WebElement> allvalues= driver.findElements(locator);
+		 for(WebElement ele:allvalues)
+	        {
+			 String value=ele.getText();
+	        	if(value.contains(valueToSearch))
+	        	{
+	        		ele.click();
+	        		//System.out.println("LOG INFO : Clicked on "+valueToSearch);
+	        		break;
+	        		
+	        		
+	        	}
+	        }
+		
+	}
+	
+	public static boolean CheckValueIsPresentInList(WebDriver driver,By locator,String valueToSearch)
+	{
+		boolean status =false;
+		List<WebElement> allvalues= findElements(driver, locator);
+		 for(WebElement ele:allvalues)
+	        {
+	        	String value=ele.getText();
+	        	if(value.equals(valueToSearch))
+	        	{
+                    System.out.println(value+" value is present");
+                    status=true;
+	        		break;
+	        		
+	        		
+	        	}
+	        }
+		
+		return status;
+	}
+	
 	
 	public static void clickElement(WebDriver driver,By locator,int time)
 	{
@@ -108,6 +156,12 @@ public class Utility
 		try 
 		{
 			element=findElement(driver, locator,time);
+			
+			String highLight=ConfigReader.getValue("highlightelement");
+			if(highLight.equalsIgnoreCase("true"))
+			{
+				highlightElement(driver, element);
+			}
 			
 			element.click();
 		}
@@ -119,7 +173,8 @@ public class Utility
 			
 			try 
 			{
-				act.moveToElement(element).click().build().perform();
+				act.scrollToElement(element).click().build().perform();
+				
 				
 			} catch (Exception e1) 
 			{
@@ -173,10 +228,18 @@ public class Utility
 	 * @param locator
 	 * @param text
 	 */
-	public static void selectValue(WebDriver driver,By locator, String text) {
+	public static void selectValue(WebDriver driver,By locator, String text) 
+	{
 		
 		Select sel = new Select(findElement(driver, locator));
 		sel.selectByVisibleText(text);
+	}
+	
+	public static void hoverOverElement(WebDriver driver,By locator,int time)
+	{
+		Actions act=new Actions(driver);
+		act.moveToElement(findElement(driver,locator,time)).perform();;
+		
 	}
 
 }

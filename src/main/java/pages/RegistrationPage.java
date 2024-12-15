@@ -35,7 +35,9 @@ public class RegistrationPage {
 		   
 		   Utility.findElement(driver, name).sendKeys(username);
 		   Utility.findElement(driver, passowrd).sendKeys(pass);
-		   Utility.findElement(driver, email).sendKeys(mail);
+		   String[] mailarr=mail.split("@");
+		   String finalMail=mailarr[0]+Utility.getCurrentDateTime()+"@"+mailarr[1];
+		   Utility.findElement(driver, email).sendKeys(finalMail);
 		   Utility.findElement(driver, courseCheckBox).click();
 		   Utility.findElement(driver, gen).click();
 		   Utility.selectValue(driver, selectState,state);

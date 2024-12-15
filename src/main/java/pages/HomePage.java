@@ -63,15 +63,13 @@ public class HomePage
 	
 	
 	
-	public Courses clickOnManageCourse()
+	public CoursesPage clickOnManageCourse()
 	{
-		Actions act=new Actions(driver);
+		Utility.hoverOverElement(driver, manage,10);
 		
-		act.moveToElement(driver.findElement(manage)).perform();
+        Utility.clickElement(driver, manageCourses,10);
 		
-		driver.findElement(manageCourses).click();
-		
-		Courses course=PageFactory.initElements(driver, Courses.class);
+		CoursesPage course=PageFactory.initElements(driver, CoursesPage.class);
 		
 		return course;
 	}
