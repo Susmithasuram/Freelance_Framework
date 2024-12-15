@@ -2,8 +2,8 @@ dataprovider\ExcelReader.class
 pages\Cart_page.class
 base\BaseClass.class
 dataprovider\ConfigReader.class
+pages\CoursesPage.class
 pages\LoginPage.class
-pages\Courses.class
 pages\HomePage.class
 helper\Utility.class
 listener\ReportListener.class
