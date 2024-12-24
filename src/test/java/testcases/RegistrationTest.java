@@ -9,7 +9,7 @@ import dataprovider.CustomDataProvider;
 import pages.LoginPage;
 import pages.RegistrationPage;
 
-public class HomePageTest extends BaseClass{
+public class RegistrationTest extends BaseClass{
 
 	
 	

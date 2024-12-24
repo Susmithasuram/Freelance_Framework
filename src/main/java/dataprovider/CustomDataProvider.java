@@ -53,6 +53,17 @@ public class CustomDataProvider
 		return arr;
 	}
 	
+	@DataProvider(name="AddCategoryDetails")
+	public static Object[][] addCategoryDetails()
+	{
+		System.out.println("LOG:INFO - Generating Test Data For The Test to add the Category");
+		
+		Object[][]arr= ExcelReader.getDataFromExcel("category_details");
+		
+		System.out.println("LOG:INFO - Test Data Generated");
+		
+		return arr;
+	}
 	
 	
 	

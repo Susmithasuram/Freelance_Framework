@@ -25,7 +25,7 @@ public class RegistrationPage {
 	   private By signUpMsg=By.xpath("//div[text()='Signup successfully, Please login!']");
 	   
 	   
-	   public String createUser(String username , String pass, String mail, String intrest, String gender, String state, String hob) {
+	   public String createUser(String username , String mail, String pass, String intrest, String gender, String state, String hob) {
 		   By courseCheckBox=By.xpath("//label[text()='"
 		   		+ intrest
 		   		+ "']//preceding::input[1]");
