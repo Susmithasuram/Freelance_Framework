@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.text.Highlighter;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -29,7 +30,7 @@ public class Utility
 	{
 		try 
 		{
-			Thread.sleep(seconds*1000);
+			Thread.sleep(seconds*500);
 		} catch (InterruptedException e) 
 		{
 			
@@ -91,7 +92,7 @@ public class Utility
 	public static WebElement findElement(WebDriver driver,By locator)
 	{
 		
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(20));
 		
 		WebElement element=wait.until(ExpectedConditions.elementToBeClickable(locator));
 	
@@ -105,10 +106,10 @@ public class Utility
 	
 	public static List<WebElement>  findElements (WebDriver driver,By locator)
 	{
-		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(20));
-		List<WebElement> courseNames= wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
+		List<WebElement> allElements= wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 		
-		return courseNames;
+		return allElements;
 	}
 	
 	public static void selectValueFromList(WebDriver driver,By locator,String valueToSearch)
@@ -138,6 +139,7 @@ public class Utility
 	        	String value=ele.getText();
 	        	if(value.equals(valueToSearch))
 	        	{
+	        		highlightElement(driver, ele);
                     System.out.println(value+" value is present");
                     status=true;
 	        		break;
@@ -176,13 +178,17 @@ public class Utility
 				act.scrollToElement(element).click().build().perform();
 				
 				
+				
 			} catch (Exception e1) 
 			{
 				System.out.println("LOG:INFO - Actions Click Failed - Trying With JS Click");
 				
 				JavascriptExecutor js=(JavascriptExecutor)driver;
 				
+				js.executeScript("arguments[0].scrollIntoView(true)", element);
 				js.executeScript("arguments[0].click()", element);
+				
+				
 			}
 			
 		}
@@ -240,6 +246,15 @@ public class Utility
 		Actions act=new Actions(driver);
 		act.moveToElement(findElement(driver,locator,time)).perform();;
 		
+	}
+	
+	public static  Alert switchToAlert(WebDriver driver,int time)
+	{
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(time));
+		Alert alt= wait.until(ExpectedConditions.alertIsPresent());
+		//Alert alt= driver.switchTo().alert();
+		
+		return alt;
 	}
 
 }

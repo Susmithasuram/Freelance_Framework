@@ -74,15 +74,12 @@ public class HomePage
 		return course;
 	}
 	
-	public Category clickOnManageCategory()
+	public CategoryPage clickOnManageCategory()
 	{
-		Actions act=new Actions(driver);
+		Utility.hoverOverElement(driver, manage,10);
+		Utility.clickElement(driver, manageCategory, 10);
 		
-		act.moveToElement(driver.findElement(manage)).perform();
-		
-		driver.findElement(manageCategory).click();
-		
-		return PageFactory.initElements(driver, Category.class);
+		return PageFactory.initElements(driver, CategoryPage.class);
 	}
 
 }
