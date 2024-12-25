@@ -69,21 +69,21 @@ public class CategoryPage
 	
 	public boolean isCategoryUpdated(String updateCategoryName)
 	{
+		//return Utility.CheckValueIsPresentInList(driver,categories,updateCategoryName);
 		
-		return Utility.CheckValueIsPresentInList(driver,categories,updateCategoryName);
+		return Utility.checkPresenceOfValue(driver, By.xpath("//tr//td[text()='"+updateCategoryName+"']"), updateCategoryName);
 	}
 	
 	public void deleteCategory(String updateCategoryName)
 	{
 		Utility.clickElement(driver, By.xpath("//tr//td[text()='"+updateCategoryName+"']//following::button[1]"));
-		Alert alt=Utility.switchToAlert(driver, 15);
 		Utility.clickElement(driver, deleteCategory, 15);
 	}
 	
 	public boolean isCategoryDeleted(String updateCategoryName)
 	{
-		
-		return !(Utility.CheckValueIsPresentInList(driver,categories,updateCategoryName));
+		return Utility.checkValueIsNotPresent(driver, By.xpath("//tr//td[text()='"+updateCategoryName+"']"));
+
 	}
 	
 }

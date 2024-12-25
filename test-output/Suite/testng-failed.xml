@@ -6,13 +6,28 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testcases.AddToCart_EnrollCourseTest">
+      <class name="testcases.RegistrationTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="validateHomePage" invocation-numbers="0"/>
+          <include name="setupBrowser"/>
+        </methods>
+      </class> <!-- testcases.RegistrationTest -->
+      <class name="testcases.AddCourseTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="addCourse" invocation-numbers="0"/>
+          <include name="setupBrowser"/>
+        </methods>
+      </class> <!-- testcases.AddCourseTest -->
+      <class name="testcases.AddCategoryTest">
         <methods>
           <include name="tearDown"/>
           <include name="setupBrowser"/>
-          <include name="addToCart_Enroll"/>
+          <include name="addCategory" invocation-numbers="0"/>
+          <include name="validLoginTest"/>
         </methods>
-      </class> <!-- testcases.AddToCart_EnrollCourseTest -->
+      </class> <!-- testcases.AddCategoryTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
