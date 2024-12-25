@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.text.Highlighter;
 
+import org.apache.commons.math3.stat.descriptive.StatisticalMultivariateSummary;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -130,9 +131,24 @@ public class Utility
 		
 	}
 	
+	public static boolean checkPresenceOfValue(WebDriver driver,By locator,String updatedValue)
+	{
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		boolean status= wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, updatedValue));
+		
+		return status;
+	}
+	
+	public static boolean checkValueIsNotPresent(WebDriver driver,By locator)
+	{
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		boolean status= wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+		return status;
+	}
 	public static boolean CheckValueIsPresentInList(WebDriver driver,By locator,String valueToSearch)
 	{
 		boolean status =false;
+		
 		List<WebElement> allvalues= findElements(driver, locator);
 		 for(WebElement ele:allvalues)
 	        {
@@ -251,8 +267,8 @@ public class Utility
 	public static  Alert switchToAlert(WebDriver driver,int time)
 	{
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(time));
-		Alert alt= wait.until(ExpectedConditions.alertIsPresent());
-		//Alert alt= driver.switchTo().alert();
+		Alert alert= wait.until(ExpectedConditions.alertIsPresent());
+		Alert alt= driver.switchTo().alert();
 		
 		return alt;
 	}
