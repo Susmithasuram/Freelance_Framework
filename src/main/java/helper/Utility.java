@@ -119,9 +119,14 @@ public class Utility
 		 for(WebElement ele:allvalues)
 	        {
 			 String value=ele.getText();
-	        	if(value.contains(valueToSearch))
+			 
+			 int actualdatevalue=Integer.parseInt(value);
+			 
+			 System.out.println("date value "+value);
+			 	int expecteddatevalue=(int )Double.parseDouble(valueToSearch);
+	        	if(actualdatevalue==expecteddatevalue)
 	        	{
-	        		ele.click();
+	        		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(ele)).click();
 	        		//System.out.println("LOG INFO : Clicked on "+valueToSearch);
 	        		break;
 	        		

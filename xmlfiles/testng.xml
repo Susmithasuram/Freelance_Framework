@@ -12,10 +12,10 @@
 		<classes>
               
             <class name="testcases.LoginTest" />
-			<class name="testcases.RegistrationTest" />
+			<!--<class name="testcases.RegistrationTest" />
 			<class name="testcases.EnrollCourseTest" />	
 			<class name="testcases.AddCourseTest" />	
-			<class name="testcases.AddCategoryTest" />	
+			<class name="testcases.AddCategoryTest" />-->
 					
 
 

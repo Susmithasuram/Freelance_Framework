@@ -8,7 +8,7 @@ pages\HomePage.class
 helper\Utility.class
 listener\ReportListener.class
 factory\BrowserFactory.class
-pages\Category.class
+pages\CategoryPage.class
 pages\EnrollPage.class
 pages\RegistrationPage.class
 dataprovider\CustomDataProvider.class

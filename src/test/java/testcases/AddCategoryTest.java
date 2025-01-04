@@ -36,5 +36,6 @@ public class AddCategoryTest extends BaseClass
 		Assert.assertTrue(category.isCategoryUpdated(updateCategory));
 		category.deleteCategory(updateCategory);
 		Assert.assertTrue(category.isCategoryDeleted(updateCategory));
+		System.out.println("Category is deleted");
 	}
 }
