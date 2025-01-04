@@ -1,6 +1,5 @@
 testcases\AddCourseTest.class
-testcases\CreateUser.class
 testcases\LoginTest.class
+testcases\RegistrationTest.class
 testcases\EnrollCourseTest.class
-testcases\ModifyUser.class
-testcases\HomePageTest.class
+testcases\AddCategoryTest.class

@@ -1,5 +1,7 @@
 package factory;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -7,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import dataprovider.ConfigReader;
@@ -30,8 +33,22 @@ public class BrowserFactory
 			{
 				opt.addArguments("headless=new");
 			}
+			if(ConfigReader.getValue("cloud").equalsIgnoreCase("true"))
+			{
+				try
+				{
+					driver=new RemoteWebDriver(new URL(""), opt);
+				} catch (MalformedURLException e)
+				{
+					e.printStackTrace();
+				}
+			}
 			
-			driver = new ChromeDriver(opt);
+			else 
+			{
+				driver = new ChromeDriver(opt);
+			}
+			
 		} 
 		else if (browser.equalsIgnoreCase("Firefox")) 
 		{
