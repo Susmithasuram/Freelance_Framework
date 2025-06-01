@@ -24,7 +24,9 @@ public class LoginTest extends BaseClass
 		
 		login.loginToApp(username, password);
 		
-		Assert.assertTrue(driver.findElement(By.className("welcomeMessage")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.className("welcomeMessage")).isDisplayed()
+// test commit remote branch on June 01
+);
 		
 	}
 
